@@ -1,0 +1,30 @@
+<div class="orders-container">
+  <header class="header">
+    <h1>My Orders</h1>
+    <button class="btn btn-secondary" (click)="goBack()">Back to Shop</button>
+  </header>
+
+  <div class="orders-list" *ngIf="orders.length > 0; else noOrders">
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-header">
+        <h3>Order #{{ order.id }}</h3>
+        <span class="order-date">{{ order.date | date:'medium' }}</span>
+      </div>
+      <div class="order-items">
+        <div class="item" *ngFor="let item of order.items">
+          <img [src]="item.image" alt="{{ item.name }}" class="item-image">
+          <span>{{ item.name }}</span>
+        </div>
+        <p><strong>Total:</strong> ${{ order.total }}</p>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noOrders>
+    <div class="no-orders">
+      <h2>No orders yet</h2>
+      <p>You haven't placed any orders yet.</p>
+      <button class="btn btn-primary" (click)="goBack()">Start Shopping</button>
+    </div>
+  </ng-template>
+</div>

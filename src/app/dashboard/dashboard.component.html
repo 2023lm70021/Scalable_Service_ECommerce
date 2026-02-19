@@ -1,0 +1,30 @@
+<div class="dashboard-container">
+  <header class="header">
+    <h1>E-Commerce Dashboard</h1>
+    <div class="header-actions">
+      <button class="btn btn-secondary" (click)="goToOrders()">My Orders</button>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+  </header>
+
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search products..."
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+      class="search-input">
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" [alt]="product.name" class="product-image">
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <p class="price">${{ product.price }}</p>
+        <p class="description">{{ product.description }}</p>
+        <button class="btn btn-primary" (click)="viewDetails(product)">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>

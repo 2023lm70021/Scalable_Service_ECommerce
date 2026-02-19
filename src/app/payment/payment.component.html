@@ -1,0 +1,40 @@
+<div class="payment-container">
+  <div class="payment-form">
+    <h2>Payment Gateway</h2>
+    <p>Complete your purchase</p>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Cardholder Name:</label>
+        <input type="text" id="name" [(ngModel)]="paymentInfo.name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" [(ngModel)]="paymentInfo.cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="expiryDate">Expiry Date:</label>
+          <input type="text" id="expiryDate" [(ngModel)]="paymentInfo.expiryDate" name="expiryDate" placeholder="MM/YY" required>
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" [(ngModel)]="paymentInfo.cvv" name="cvv" placeholder="123" required>
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <p>Sample Product: $999</p>
+        <p><strong>Total: $999</strong></p>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn btn-secondary" (click)="goBack()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Pay Now</button>
+      </div>
+    </form>
+  </div>
+</div>
