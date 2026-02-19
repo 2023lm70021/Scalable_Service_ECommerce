@@ -1,0 +1,10 @@
+{
+  "buildCommand": "ng build --configuration production",
+  "outputDirectory": "dist/ecommerce/browser",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
